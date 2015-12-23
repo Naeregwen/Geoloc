@@ -1,0 +1,238 @@
+<?xml version="1.0"?> 
+<countries>
+<country lng = "66.026" lat = "33.838" zoom = "5" name="Afghanistan"></country>
+<country lng = "20" lat = "60.2" zoom = "5" name="Aland"></country>
+<country lng = "20.068" lat = "41.142" zoom = "5" name="Albania"></country>
+<country lng = "2.632" lat = "28.163" zoom = "5" name="Algeria"></country>
+<country lng = "-170.707" lat = "-14.304" zoom = "5" name="American Samoa"></country>
+<country lng = "1.576" lat = "42.548" zoom = "5" name="Andorra"></country>
+<country lng = "17.544" lat = "-12.295" zoom = "5" name="Angola"></country>
+<country lng = "-63.060" lat = "18.222" zoom = "5" name="Anguilla"></country>
+<country lng = "21.303" lat = "-80.445" zoom = "2" name="Antarctica"></country>
+<country lng = "-61.791" lat = "17.279" zoom = "8" name="Antigua and Barbuda"></country>
+<country lng = "-65.167" lat = "-35.376" zoom = "4" name="Argentina"></country>
+<country lng = "44.947" lat = "40.286" zoom = "5" name="Armenia"></country>
+<country lng = "-69.975" lat = "12.515" zoom = "6" name="Aruba"></country>
+<country lng = "134.489" lat = "-25.734" zoom = "4" name="Australia"></country>
+<country lng = "14.14" lat = "47.592" zoom = "5" name="Austria"></country>
+<country lng = "48.819" lat = "40.296" zoom = "5" name="Azerbaijan"></country>
+<country lng = "50.559" lat = "26.022" zoom = "5" name="Bahrain"></country>
+<country lng = "90.268" lat = "23.843" zoom = "5" name="Bangladesh"></country>
+<country lng = "-59.561" lat = "13.178" zoom = "5" name="Barbados"></country>
+<country lng = "28.046" lat = "53.539" zoom = "5" name="Belarus"></country>
+<country lng = "4.663" lat = "50.642" zoom = "5" name="Belgium"></country>
+<country lng = "-88.684" lat = "17.217" zoom = "5" name="Belize"></country>
+<country lng = "2.343" lat = "9.647" zoom = "5" name="Benin"></country>
+<country lng = "-64.739" lat = "32.316" zoom = "5" name="Bermuda"></country>
+<country lng = "90.429" lat = "27.415" zoom = "5" name="Bhutan"></country>
+<country lng = "-64.670" lat = "-16.714" zoom = "5" name="Bolivia"></country>
+<country lng = "17.786" lat = "44.168" zoom = "5" name="Bosnia and Herzegowina"></country>
+<country lng = "23.815" lat = "-22.182" zoom = "5" name="Botswana"></country>
+<country lng = "3.412" lat = "-54.421" zoom = "5" name="Bouvet Island"></country>
+<country lng = "-53.089" lat = "-10.773" zoom = "4" name="Brazil"></country>
+<country lng = "72.434" lat = "-7.334" zoom = "5" name="British Indian Ocean Territory"></country>
+<country lng = "114.761" lat = "4.521" zoom = "5" name="Brunei"></country>
+<country lng = "25.231" lat = "42.761" zoom = "5" name="Bulgaria"></country>
+<country lng = "-1.74" lat = "12.277" zoom = "5" name="Burkina Faso"></country>
+<country lng = "29.887" lat = "-3.356" zoom = "5" name="Burundi"></country>
+<country lng = "104.923" lat = "12.716" zoom = "5" name="Cambodia"></country>
+<country lng = "12.743" lat = "5.685" zoom = "5" name="Cameroon"></country>
+<country lng = "-98.265" lat = "61.392" zoom = "4" name="Canada"></country>
+<country lng = "-23.967" lat = "15.978" zoom = "5" name="Cape Verde"></country>
+<country lng = "-81.238" lat = "19.308" zoom = "5" name="Cayman Islands"></country>
+<country lng = "20.482" lat = "6.571" zoom = "5" name="Central African Republic"></country>
+<country lng = "18.664" lat = "15.361" zoom = "5" name="Chad"></country>
+<country lng = "-71.373" lat = "-37.852" zoom = "5" name="Chile"></country>
+<country lng = "103.891" lat = "36.519" zoom = "3" name="China"></country>
+<country lng = "105.703" lat = "-10.444" zoom = "5" name="Christmas Island"></country>
+<country lng = "96.836" lat = "-12.171" zoom = "5" name="Cocos (Keeling) Islands"></country>
+<country lng = "-73.073" lat = "3.901" zoom = "5" name="Colombia"></country>
+<country lng = "43.675" lat = "-11.892" zoom = "5" name="Comoros"></country>
+<country lng = "15.224" lat = "-0.840" zoom = "5" name="Congo (Brazzaville)"></country>
+<country lng = "23.655" lat = "-2.876" zoom = "5" name="Congo ,   DR"></country>
+<country lng = "-158.908" lat = "-20.934" zoom = "5" name="Cook Islands"></country>
+<country lng = "26.266" lat = "64.5" zoom = "5" name="Copyright"></country>
+<country lng = "-84.187" lat = "9.97" zoom = "5" name="Costa Rica"></country>
+<country lng = "16.411" lat = "45.051" zoom = "5" name="Croatia (Hrvatska)"></country>
+<country lng = "-79.036" lat = "21.621" zoom = "5" name="Cuba"></country>
+<country lng = "33.221" lat = "35.045" zoom = "5" name="Cyprus"></country>
+<country lng = "15.338" lat = "49.742" zoom = "5" name="Czech Republic"></country>
+<country lng = "10.046" lat = "55.963" zoom = "5" name="Denmark"></country>
+<country lng = "42.577" lat = "11.749" zoom = "5" name="Djibouti"></country>
+<country lng = "-61.355" lat = "15.435" zoom = "5" name="Dominica"></country>
+<country lng = "-70.484" lat = "18.894" zoom = "5" name="Dominican Republic"></country>
+<country lng = "-78.767" lat = "-1.427" zoom = "5" name="Ecuador"></country>
+<country lng = "29.871" lat = "26.494" zoom = "5" name="Egypt"></country>
+<country lng = "-88.866" lat = "13.736" zoom = "5" name="El Salvador"></country>
+<country lng = "10.341" lat = "1.712" zoom = "5" name="Equatorial Guinea"></country>
+<country lng = "38.851" lat = "15.358" zoom = "5" name="Eritrea"></country>
+<country lng = "25.527" lat = "58.674" zoom = "5" name="Estonia"></country>
+<country lng = "39.616" lat = "8.626" zoom = "5" name="Ethiopia"></country>
+<country lng = "-59.363" lat = "-51.737" zoom = "5" name="Falkland Islands (Malvinas)"></country>
+<country lng = "-6.884" lat = "62.031" zoom = "5" name="Faroe Islands"></country>
+<country lng = "171.983" lat = "-17.453" zoom = "5" name="Fiji"></country>
+<country lng = "26.266" lat = "64.5" zoom = "5" name="Finland"></country>
+<country lng = "2.551" lat = "46.564" zoom = "5" name="France"></country>
+<country lng = "-53.241" lat = "3.924" zoom = "5" name="French Guiana"></country>
+<country lng = "-146.418" lat = "-14.854" zoom = "5" name="French Polynesia"></country>
+<country lng = "68.861" lat = "-49.191" zoom = "5" name="French Southern Territories"></country>
+<country lng = "11.797" lat = "-0.59" zoom = "5" name="Gabon"></country>
+<country lng = "43.517" lat = "42.176" zoom = "5" name="Georgia"></country>
+<country lng = "10.393" lat = "51.106" zoom = "5" name="Germany"></country>
+<country lng = "-1.207" lat = "7.959" zoom = "5" name="Ghana"></country>
+<country lng = "-5.344" lat = "36.138" zoom = "5" name="Gibraltar"></country>
+<country lng = "22.9597434722" lat = "39.0685399882" zoom = "5" name="Greece"></country>
+<country lng = "-41.389" lat = "74.720" zoom = "5" name="Greenland"></country>
+<country lng = "-61.679" lat = "12.112" zoom = "5" name="Grenada"></country>
+<country lng = "-61.53" lat = "16.2" zoom = "5" name="Guadeloupe"></country>
+<country lng = "144.775" lat = "13.443" zoom = "5" name="Guam"></country>
+<country lng = "-90.356" lat = "15.702" zoom = "5" name="Guatemala"></country>
+<country lng = "-10.941" lat = "10.438" zoom = "5" name="Guinea"></country>
+<country lng = "-14.96" lat = "12.03" zoom = "5" name="Guinea-Bissau"></country>
+<country lng = "-58.974" lat = "4.792" zoom = "5" name="Guyana"></country>
+<country lng = "-72.679" lat = "18.941" zoom = "5" name="Haiti"></country>
+<country lng = "73.498" lat = "-53.09" zoom = "5" name="Heard and Mc Donald Islands"></country>
+<country lng = "-86.619" lat = "14.819" zoom = "5" name="Honduras"></country>
+<country lng = "19.413" lat = "47.166" zoom = "5" name="Hungary"></country>
+<country lng = "-18.605" lat = "64.997" zoom = "5" name="Iceland"></country>
+<country lng = "79.616" lat = "22.883" zoom = "13" name="India"></country>
+<country lng = "117.3" lat = "-2.23" zoom = "5" name="Indonesia"></country>
+<country lng = "54.197" lat = "32.739" zoom = "5" name="Iran"></country>
+<country lng = "43.772" lat = "33.048" zoom = "5" name="Iraq"></country>
+<country lng = "-8.15" lat = "53.176" zoom = "5" name="Ireland"></country>
+<country lng = "34.965" lat = "31.358" zoom = "5" name="Israel"></country>
+<country lng = "12.071" lat = "42.79" zoom = "5" name="Italy"></country>
+<country lng = "-5.555" lat = "7.631" zoom = "5" name="Ivory Coast"></country>
+<country lng = "-77.319" lat = "18.151" zoom = "5" name="Jamaica"></country>
+<country lng = "137.99" lat = "37.562" zoom = "5" name="Japan"></country>
+<country lng = "36.786" lat = "31.253" zoom = "5" name="Jordan"></country>
+<country lng = "66.657" lat = "48.015" zoom = "5" name="Kazakhstan"></country>
+<country lng = "37.857" lat = "0.529" zoom = "5" name="Kenya"></country>
+<country lng = "-157.41" lat = "1.845" zoom = "5" name="Kiribati"></country>
+<country lng = "47.59" lat = "29.34" zoom = "5" name="Kuwait"></country>
+<country lng = "74.555" lat = "41.465" zoom = "5" name="Kyrgyzstan"></country>
+<country lng = "103.763" lat = "18.502" zoom = "5" name="Laos"></country>
+<country lng = "24.929" lat = "56.857" zoom = "5" name="Latvia"></country>
+<country lng = "35.888" lat = "33.92" zoom = "5" name="Lebanon"></country>
+<country lng = "28.243" lat = "-29.58" zoom = "5" name="Lesotho"></country>
+<country lng = "-9.307" lat = "6.448" zoom = "5" name="Liberia"></country>
+<country lng = "18.023" lat = "27.043" zoom = "5" name="Libya"></country>
+<country lng = "9.554" lat = "47.151" zoom = "5" name="Liechtenstein"></country>
+<country lng = "23.898" lat = "55.335" zoom = "5" name="Lithuania"></country>
+<country lng = "6.087" lat = "49.77" zoom = "6" name="Luxembourg"></country>
+<country lng = "21.697" lat = "41.599" zoom = "5" name="Macedonia"></country>
+<country lng = "46.706" lat = "-19.373" zoom = "5" name="Madagascar"></country>
+<country lng = "34.307" lat = "-13.215" zoom = "5" name="Malawi"></country>
+<country lng = "109.708" lat = "3.792" zoom = "5" name="Malaysia"></country>
+<country lng = "73.252" lat = "3.216" zoom = "5" name="Maldives"></country>
+<country lng = "-3.524" lat = "17.35" zoom = "5" name="Mali"></country>
+<country lng = "14.44" lat = "35.89" zoom = "5" name="Malta"></country>
+<country lng = "168.62" lat = "7.643" zoom = "5" name="Marshall Islands"></country>
+<country lng = "-61.021" lat = "14.652" zoom = "5" name="Martinique"></country>
+<country lng = "-10.332" lat = "20.259" zoom = "5" name="Mauritania"></country>
+<country lng = "57.87" lat = "-20.25" zoom = "5" name="Mauritius"></country>
+<country lng = "45.138" lat = "-12.818" zoom = "5" name="Mayotte"></country>
+<country lng = "-102.533" lat = "23.95" zoom = "5" name="Mexico"></country>
+<country lng = "159.4" lat = "6.49" zoom = "5" name="Micronesia ,  Fed. States of"></country>
+<country lng = "-177.378" lat = "28.205" zoom = "5" name="Midway Is."></country>
+<country lng = "28.473" lat = "47.193" zoom = "5" name="Moldova ,  Republic of"></country>
+<country lng = "7.412" lat = "43.747" zoom = "5" name="Monaco"></country>
+<country lng = "103.083" lat = "46.835" zoom = "5" name="Mongolia"></country>
+<country lng = "-62.186" lat = "16.735" zoom = "5" name="Montserrat"></country>
+<country lng = "-6.317" lat = "31.883" zoom = "5" name="Morocco"></country>
+<country lng = "35.552" lat = "-17.26" zoom = "5" name="Mozambique"></country>
+<country lng = "96.506" lat = "21.154" zoom = "5" name="Myanmar"></country>
+<country lng = "17.218" lat = "-22.133" zoom = "5" name="Namibia"></country>
+<country lng = "166.929" lat = "-0.522" zoom = "5" name="Nauru"></country>
+<country lng = "83.938" lat = "28.253" zoom = "5" name="Nepal"></country>
+<country lng = "5.603" lat = "52.249" zoom = "5" name="Netherlands"></country>
+<country lng = "-68.693" lat = "12.187" zoom = "5" name="Netherlands Antilles"></country>
+<country lng = "165.715" lat = "-21.316" zoom = "5" name="New Caledonia"></country>
+<country lng = "171.779" lat = "-41.838" zoom = "5" name="New Zealand"></country>
+<country lng = "-85.034" lat = "12.839" zoom = "5" name="Nicaragua"></country>
+<country lng = "9.397" lat = "17.426" zoom = "5" name="Niger"></country>
+<country lng = "8.105" lat = "9.593" zoom = "5" name="Nigeria"></country>
+<country lng = "-169.86" lat = "-19.05" zoom = "5" name="Niue"></country>
+<country lng = "167.952" lat = "-29.037" zoom = "5" name="Norfolk Island"></country>
+<country lng = "145.679" lat = "15.088" zoom = "5" name="Northern Mariana Islands"></country>
+<country lng = "14.084" lat = "64.448" zoom = "5" name="Norway"></country>
+<country lng = "56.109" lat = "20.602" zoom = "5" name="Oman"></country>
+<country lng = "69.385" lat = "29.967" zoom = "5" name="Pakistan"></country>
+<country lng = "134.568" lat = "7.501" zoom = "5" name="Palau"></country>
+<country lng = "-80.102" lat = "8.507" zoom = "5" name="Panama"></country>
+<country lng = "145.241" lat = "-6.478" zoom = "5" name="Papua New Guinea"></country>
+<country lng = "-58.391" lat = "-23.236" zoom = "5" name="Paraguay"></country>
+<country lng = "-74.375" lat = "-9.163" zoom = "5" name="Peru"></country>
+<country lng = "122.879" lat = "11.742" zoom = "5" name="Philippines"></country>
+<country lng = "-128.593" lat = "-24.476" zoom = "5" name="Pitcairn"></country>
+<country lng = "19.4" lat = "52.124" zoom = "5" name="Poland"></country>
+<country lng = "-8.56" lat = "39.6" zoom = "5" name="Portugal"></country>
+<country lng = "-66.462" lat = "18.221" zoom = "5" name="Puerto Rico"></country>
+<country lng = "51.191" lat = "25.31" zoom = "6" name="Qatar"></country>
+<country lng = "55.538" lat = "-21.121" zoom = "5" name="Reunion"></country>
+<country lng = "24.969" lat = "45.843" zoom = "5" name="Romania"></country>
+<country lng = "96.577" lat = "61.946" zoom = "3" name="Russia"></country>
+<country lng = "29.917" lat = "-1.997" zoom = "5" name="Rwanda"></country>
+<country lng = "-172.159" lat = "-13.758" zoom = "5" name="Samoa"></country>
+<country lng = "12.46" lat = "43.942" zoom = "6" name="San Marino"></country>
+<country lng = "6.73659" lat = "0.456" zoom = "5" name="Sao Tome and Principe"></country>
+<country lng = "44.546" lat = "24.122" zoom = "5" name="Saudi Arabia"></country>
+<country lng = "-14.467" lat = "14.366" zoom = "5" name="Senegal"></country>
+<country lng = "52.23" lat = "-6.354" zoom = "5" name="Seychelles"></country>
+<country lng = "-11.791" lat = "8.56" zoom = "5" name="Sierra Leone"></country>
+<country lng = "103.8" lat = "1.35" zoom = "5" name="Singapore"></country>
+<country lng = "19.491" lat = "48.707" zoom = "5" name="Slovakia (Slovak Republic)"></country>
+<country lng = "14.82" lat = "46.12" zoom = "5" name="Slovenia"></country>
+<country lng = "159.63" lat = "-8.918" zoom = "5" name="Solomon Islands"></country>
+<country lng = "45.862" lat = "6.063" zoom = "5" name="Somalia"></country>
+<country lng = "25.092" lat = "-28.998" zoom = "5" name="South Africa"></country>
+<country lng = "-36.38" lat = "-54.48" zoom = "5" name="South Georgia &amp; Sandwich I."></country>
+<country lng = "127.834" lat = "36.375" zoom = "5" name="South Korea"></country>
+<country lng = "-3.649" lat = "40.226" zoom = "5" name="Spain"></country>
+<country lng = "80.704" lat = "7.608" zoom = "5" name="Sri Lanka"></country>
+<country lng = "-5.717" lat = "-15.961" zoom = "5" name="St. Helena"></country>
+<country lng = "-62.753" lat = "17.326" zoom = "6" name="St. Kitts &amp; Nevis"></country>
+<country lng = "-56.306" lat = "46.93" zoom = "5" name="St. Pierre and Miquelon"></country>
+<country lng = "-61.193" lat = "13.254" zoom = "7" name="St. Vincent &amp; the Grenadines"></country>
+<country lng = "30.049" lat = "13.831" zoom = "5" name="Sudan"></country>
+<country lng = "-55.911" lat = "4.126" zoom = "5" name="Suriname"></country>
+<country lng = "18.483" lat = "78.863" zoom = "5" name="Svalbard"></country>
+<country lng = "31.497" lat = "-26.562" zoom = "5" name="Swaziland"></country>
+<country lng = "16.739" lat = "62.789" zoom = "5" name="Sweden"></country>
+<country lng = "8.234" lat = "46.802" zoom = "5" name="Switzerland"></country>
+<country lng = "38.505" lat = "35.013" zoom = "5" name="Syria"></country>
+<country lng = "121" lat = "23.63" zoom = "5" name="Taiwan"></country>
+<country lng = "71.042" lat = "38.528" zoom = "5" name="Tajikistan"></country>
+<country lng = "34.823" lat = "-6.27" zoom = "5" name="Tanzania"></country>
+<country lng = "101.017" lat = "15.127" zoom = "5" name="Thailand"></country>
+<country lng = "-76.546" lat = "24.201" zoom = "5" name="The Bahamas"></country>
+<country lng = "-15.386" lat = "13.452" zoom = "5" name="The Gambia"></country>
+<country lng = "125.853" lat = "-8.822" zoom = "5" name="Timor Leste"></country>
+<country lng = "0.975" lat = "8.53" zoom = "5" name="Togo"></country>
+<country lng = "-171.852" lat = "-9.195" zoom = "5" name="Tokelau"></country>
+<country lng = "-174.836" lat = "-20.402" zoom = "5" name="Tonga"></country>
+<country lng = "-61.253" lat = "10.468" zoom = "5" name="Trinidad and Tobago"></country>
+<country lng = "9.561" lat = "34.11" zoom = "5" name="Tunisia"></country>
+<country lng = "35.179" lat = "39.06" zoom = "5" name="Turkey"></country>
+<country lng = "58.39" lat = "39.218" zoom = "5" name="Turkmenistan"></country>
+<country lng = "-71.812" lat = "21.836" zoom = "5" name="Turks and Caicos Islands"></country>
+<country lng = "178.557" lat = "-7.827" zoom = "5" name="Tuvalu"></country>
+<country lng = "32.386" lat = "1.279" zoom = "5" name="Uganda"></country>
+<country lng = "31.387" lat = "49.017" zoom = "5" name="Ukraine"></country>
+<country lng = "54.335" lat = "23.91" zoom = "5" name="United Arab Emirates"></country>
+<country lng = "-2.895" lat = "54.155" zoom = "5" name="United Kingdom"></country>
+<country lng = "-112.491" lat = "45.695" zoom = "3" name="U.S.A."></country>
+<country lng = "-56.012" lat = "-32.799" zoom = "5" name="Uruguay"></country>
+<country lng = "63.169" lat = "41.750" zoom = "5" name="Uzbekistan"></country>
+<country lng = "167.718" lat = "-16.255" zoom = "5" name="Vanuatu"></country>
+<country lng = "12.451" lat = "41.903" zoom = "5" name="Vatican City"></country>
+<country lng = "-66.169" lat = "7.122" zoom = "5" name="Venezuela"></country>
+<country lng = "106.3" lat = "16.65" zoom = "5" name="Vietnam"></country>
+<country lng = "-64.53" lat = "18.44" zoom = "5" name="Virgin Islands (British)"></country>
+<country lng = "-64.78" lat = "17.74" zoom = "5" name="Virgin Islands (U.S.)"></country>
+<country lng = "-177.150" lat = "-13.787" zoom = "5" name="Wallis &amp; Futuna"></country>
+<country lng = "-13.136" lat = "24.661" zoom = "5" name="Western Sahara"></country>
+<country lng = "47.599" lat = "15.905" zoom = "5" name="Yemen"></country>
+<country lng = "27.798" lat = "-13.453" zoom = "5" name="Zambia"></country>
+<country lng = "29.871" lat = "19" zoom = "5" name="Zimbabwe"></country>
+</countries>

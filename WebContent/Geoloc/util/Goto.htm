@@ -1,0 +1,899 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml">
+<head><title>GLiner</title>
+
+<script src="http://maps.google.com/maps?file=api&v=2.44&key=ABQIAAAAYxpy0HiKBWXiyhVrpVqkshTWg_xmhpETXrjHUj59zHLsinrq_xSAmAGIHF6kJpo3mJn5WnKDztG7kw"type="text/javascript">
+
+</script>
+
+<style type="text/css">
+v\:* {
+behavior:url(#default#VML);
+}
+
+TD, BODY { font-family: Arial; font-size: small;
+background-color: #CCCCFF;}
+
+A:hover {color: red; text-decoration: underline; }
+
+</style>
+
+</head>
+<body onunload="GUnload()">
+
+<table>
+<tr><td style="text-align:center; font-size:18px">
+<strong> GLiner </strong>-<small> two way Google Maps editor for FF1.5
+
+
+
+
+
+
+
+</small></td>
+<td>
+<input type="text" id="zooms" style="width:30px; text-align:center" title="Zoom value"></input>
+
+<select name="coord" id="coord" style="width:200px; text-align:center" title="Coordinate precision">
+<OPTION selected ></option>
+<OPTION></OPTION>
+<OPTION></OPTION>
+<OPTION></OPTION>
+<OPTION></OPTION>
+</select>
+
+<input type="button" id = "add" value="add marker" 
+onclick = "add();" title="Marker added by clicking on map."></input>
+
+<input type="checkbox" id="poly" checked="checked" title="Polyline drawn when checked."></input>Polyline
+</td></tr>
+
+<tr><td>
+
+<textarea id="markers"  cols="50" rows="22" title="Script area. You can type any script here."></textarea>
+</td>
+<td rowspan="3">
+<div id="map" style="width:550px; height:450px">map loading...</div>
+</td></tr>
+<tr><td>
+<input type="button" id="clearmarkers" value="Clear script" 
+onclick = "document.getElementById('markers').value = '';" title="Clear the script area above."></input>
+
+<input type="button" id="drawmarkers" value="Execute script" 
+onclick = "eval(document.getElementById('markers').value);" title="Run the script of the textarea above."></input>
+
+<input type="checkbox" id="log" title="Event logging."></input>
+Log
+
+<input type="button" id="clearmap" value="Clear map" title="Remove overlays on the map."
+onclick = "pint.length=0;map.clearOverlays();"></input>
+
+</td></tr>
+
+<tr><td>
+
+<input type="button" id="clear" value="Clear poly" title="Clear the polyline array area below."
+onclick = "document.getElementById('show').value = '';"></input>
+
+<input type="button" id="drpoly" value="Draw poly" title="Draw the below written polyline on map."
+onclick = 'polyline()'></input>
+
+&nbsp;&nbsp;
+<select name="maahan" class="maahan" id="maahan"
+onchange="go()" title="Jump to selected country." >
+
+<OPTION selected value= " 26.266 ,  64.5 ,  5 " >Go to</option>
+<OPTION value= " 66.026   ,33.838 ,  5 " >Afghanistan</OPTION>
+<OPTION value= " 20.068 ,  41.142 ,  5 " >Albania</OPTION>
+
+<OPTION value= " 2.632 ,  28.163 ,  5 " >Algeria</OPTION>
+
+<OPTION value= " -170.707 ,  -14.304 ,  5 " >American Samoa </OPTION>
+<OPTION value= " 1.576 ,  42.548 ,  5 " >Andorra</OPTION>
+
+<OPTION value= " 17.544 ,  -12.295 ,  5 " >Angola</OPTION>
+<OPTION value= " -63.060 ,  18.222 ,  5 " >Anguilla</OPTION>
+
+<OPTION value= " 21.303 ,  -80.445 ,  2 " >Antarctica</OPTION>
+<OPTION value= " -61.791 ,  17.279 ,  8 " >Antigua and Barbuda </OPTION>
+
+<OPTION value= " -65.167 ,  -35.376 ,  4 " >Argentina</OPTION>
+
+<OPTION value= " 44.947 ,  40.286 ,  5 " >Armenia</OPTION>
+
+<OPTION value= " -69.975 ,  12.515  ,  6 " >Aruba</OPTION>
+<OPTION value= " 134.489 ,  -25.734 ,  4 " >Australia</OPTION>
+<OPTION value= " 14.14 ,  47.592 ,  5 " >Austria</OPTION>
+
+<OPTION value= " 48.819 ,  40.296 ,  5 " >Azerbaijan</OPTION>
+
+<OPTION value= " 50.559 ,  26.022 ,  5 " >Bahrain</OPTION>
+
+<OPTION value= " 90.268 ,  23.843 ,  5 " >Bangladesh</OPTION>
+
+<OPTION value= " -59.561 ,  13.178 ,  5 " >Barbados</OPTION>
+<OPTION value= " 28.046 ,  53.539 ,  5 " >Belarus</OPTION>
+
+<OPTION value= " 4.663 ,  50.642 ,  5 " >Belgium</OPTION>
+<OPTION value= " -88.684 ,  17.217 ,  5 " >Belize</OPTION>
+<OPTION value= " 2.343 ,  9.647 ,  5 " >Benin</OPTION>
+
+<OPTION value= " -64.739 ,  32.316 ,  5 " >Bermuda</OPTION>
+
+<OPTION value= " 90.429 ,  27.415 ,  5 " >Bhutan</OPTION>
+
+<OPTION value= " -64.670 ,  -16.714 ,  5 " >Bolivia</OPTION>
+<OPTION value= " 17.786 ,  44.168 ,  5 " >Bosnia and Herzegowina </OPTION>
+<OPTION value= " 23.815 ,  -22.182 ,  5 " >Botswana</OPTION>
+
+<OPTION value= " 3.412 ,  -54.421 ,  5 " >Bouvet Island</OPTION>
+<OPTION value= " -53.089 ,  -10.773 ,  4 " >Brazil</OPTION>
+
+<OPTION value= " 72.434 ,  -7.334 ,  5 " >British Indian Ocean
+Territory </OPTION>
+
+<OPTION value= " 114.761 ,  4.521 ,  5 " >Brunei</OPTION>
+
+<OPTION value= " 25.231 ,  42.761 ,  5 " >Bulgaria</OPTION>
+
+<OPTION value= " -1.74 ,  12.277 ,  5 " >Burkina Faso</OPTION>
+<OPTION value= " 29.887 ,  -3.356 ,  5 " >Burundi</OPTION>
+
+<OPTION value= " 104.923 ,  12.716 ,  5 " >Cambodia</OPTION>
+
+<OPTION value= " 12.743 ,  5.685 ,  5 " >Cameroon</OPTION>
+<OPTION value= " -98.265 ,  61.392 ,  4 " >Canada</OPTION>
+
+<OPTION value= " -23.967 ,  15.978 ,  5 " >Cape Verde</OPTION>
+
+<OPTION value= " -81.238 ,  19.308 ,  5 " >Cayman Islands </OPTION>
+
+<OPTION value= " 20.482 ,  6.571 ,  5 " >Central African Republic </OPTION>
+<OPTION value= " 18.664 ,  15.361 ,  5 " >Chad</OPTION>
+<OPTION value= " -71.373 ,  -37.852 ,  5 " >Chile</OPTION>
+
+<OPTION value= " 103.891 ,  36.519 ,  3 " >China</OPTION>
+
+<OPTION value= " 105.703 ,  -10.444 ,  5 " >Christmas Island </OPTION>
+
+<OPTION value= " 96.836 ,  -12.171 ,  5 " >Cocos (Keeling) Islands </OPTION>
+
+<OPTION value= " -73.073 ,  3.901 ,  5 " >Colombia</OPTION>
+
+<OPTION value= " 43.675 ,  -11.892 ,  5 " >Comoros</OPTION>
+
+<OPTION value= " 15.224 ,  -0.840 ,  5 " >Congo (Brazzaville) </OPTION>
+
+<OPTION value= " 23.655 ,  -2.876 ,  5 " >Congo ,   DR</OPTION>
+<OPTION value= " -158.908 ,  -20.934 ,  5 " >Cook Islands </OPTION>
+<OPTION value= " 26.266 ,  64.5 ,  5 " >Copyright</OPTION>
+
+<OPTION value= " -84.187 ,  9.97 ,  5 " >Costa Rica</OPTION>
+
+<OPTION value= " 16.411 ,  45.051 ,  5 " >Croatia (Hrvatska) </OPTION>
+
+<OPTION value= " -79.036 ,  21.621 ,  5 " >Cuba</OPTION>
+
+<OPTION value= " 33.221 ,  35.045 ,  5 " >Cyprus</OPTION>
+
+<OPTION value= " 15.338 ,  49.742 ,  5 " >Czech Republic</OPTION>
+
+<OPTION value= " 10.046 ,  55.963 ,  5 " >Denmark</OPTION>
+
+<OPTION value= " 42.577 ,  11.749 ,  5 " >Djibouti</OPTION>
+<OPTION value= " -61.355 ,  15.435 ,  5 " >Dominica</OPTION>
+
+<OPTION value= " -70.484 ,  18.894 ,  5 " >Dominican Republic </OPTION>
+
+<OPTION value= " -78.767 ,  -1.427 ,  5 " >Ecuador</OPTION>
+
+<OPTION value= " 29.871 ,  26.494 ,  5 " >Egypt</OPTION>
+<OPTION value= " -88.866 ,  13.736 ,  5 " >El Salvador</OPTION>
+
+<OPTION value= " 10.341 ,  1.712 ,  5 " >Equatorial Guinea </OPTION>
+
+<OPTION value= " 38.851 ,  15.358 ,  5 " >Eritrea</OPTION>
+
+<OPTION value= " 25.527 ,  58.674 ,  5 " >Estonia</OPTION>
+
+<OPTION value= " 39.616 ,  8.626 ,  5 " >Ethiopia</OPTION>
+
+<OPTION value= " -59.363 ,  -51.737 ,  5 " >Falkland Islands
+(Malvinas) </OPTION>
+
+<OPTION value= " -6.884 ,  62.031 ,  5 " >Faroe Islands</OPTION>
+
+<OPTION value= " 171.983 ,  -17.453 ,  5 " >Fiji</OPTION>
+
+<OPTION value= " 26.266 ,  64.5 ,  5 " >Finland</OPTION>
+
+<OPTION value= " 2.551 ,  46.564 ,  5 " >France</OPTION>
+
+<OPTION value= " -53.241 ,  3.924 ,  5 " >French Guiana</OPTION>
+
+<OPTION value= " -146.418 ,  -14.854 ,  5 " >French Polynesia </OPTION>
+<OPTION value= " 68.861 ,  -49.191 ,  5 " >French Southern Territories </OPTION>
+
+<OPTION value= " 11.797 ,  -0.59 ,  5 " >Gabon</OPTION>
+<OPTION value= " 43.517 ,  42.176 ,  5 " >Georgia</OPTION>
+
+<OPTION value= " 10.393 ,  51.106 ,  5 " >Germany</OPTION>
+<OPTION value= " -1.207 ,  7.959 ,  5 " >Ghana</OPTION>
+
+<OPTION value= " -5.344 ,  36.138 ,  5 " >Gibraltar</OPTION>
+
+<OPTION value= " 22.9597434722 ,  39.0685399882 ,  5 " >Greece </OPTION>
+<OPTION value= " -41.389 ,  74.720 ,  5 " >Greenland</OPTION>
+
+<OPTION value= " -61.679 ,  12.112 ,  5 " >Grenada</OPTION>
+<OPTION value= " -61.53 ,  16.2 ,  5 " >Guadeloupe</OPTION>
+
+<OPTION value= " 144.775 ,  13.443 ,  5 " >Guam</OPTION>
+<OPTION value= " -90.356 ,  15.702 ,  5 " >Guatemala</OPTION>
+
+<OPTION value= " -10.941 ,  10.438 ,  5 " >Guinea</OPTION>
+
+<OPTION value= " -14.96 ,  12.03 ,  5 " >Guinea-Bissau</OPTION>
+
+<OPTION value= " -58.974 ,  4.792 ,  5 " >Guyana</OPTION>
+
+<OPTION value= " -72.679 ,  18.941 ,  5 " >Haiti</OPTION>
+<OPTION value= " 73.498 ,  -53.09 ,  5 " >Heard and Mc Donald Islands </OPTION>
+
+<OPTION value= " -86.619 ,  14.819 ,  5 " >Honduras</OPTION>
+
+<OPTION value= " 19.413 ,  47.166 ,  5 " >Hungary</OPTION>
+
+<OPTION value= " -18.605 ,  64.997 ,  5 " >Iceland</OPTION>
+
+<OPTION value= " 79.616 ,  22.883 ,  13 " >India</OPTION>
+
+<OPTION value= " 117.3 ,  -2.23 ,  5 " >Indonesia</OPTION>
+<OPTION value= " 54.197 ,  32.739 ,  5 " >Iran</OPTION>
+
+<OPTION value= " 43.772 ,  33.048 ,  5 " >Iraq</OPTION>
+
+<OPTION value= " -8.15 ,  53.176 ,  5 " >Ireland</OPTION>
+<OPTION value= " 34.965 ,  31.358 ,  5 " >Israel</OPTION>
+
+<OPTION value= " 12.071 ,  42.79 ,  5 " >Italy</OPTION>
+<OPTION value= " -5.555 ,  7.631 ,  5 " >Ivory Coast</OPTION>
+
+<OPTION value= " -77.319 ,  18.151 ,  5 " >Jamaica</OPTION>
+
+<OPTION value= " 137.99 ,  37.562 ,  5 " >Japan</OPTION>
+
+<OPTION value= " 36.786 ,  31.253 ,  5 " >Jordan</OPTION>
+
+<OPTION value= " 66.657 ,  48.015 ,  5 " >Kazakhstan</OPTION>
+<OPTION value= " 37.857 ,  0.529 ,  5 " >Kenya</OPTION>
+
+<OPTION value= " -157.41,  1.845 ,  5 " >Kiribati</OPTION>
+
+<OPTION value= " 47.59 ,  29.34 ,  5 " >Kuwait</OPTION>
+
+<OPTION value= " 74.555 ,  41.465 ,  5 " >Kyrgyzstan</OPTION>
+
+<OPTION value= " 103.763 ,  18.502 ,  5 " >Laos</OPTION>
+
+<OPTION value= " 24.929 ,  56.857 ,  5 " >Latvia</OPTION>
+<OPTION value= " 35.888 ,  33.92 ,  5 " >Lebanon</OPTION>
+
+<OPTION value= " 28.243 ,  -29.58 ,  5 " >Lesotho</OPTION>
+
+<OPTION value= " -9.307 ,  6.448 ,  5 " >Liberia</OPTION>
+<OPTION value= " 18.023 ,  27.043 ,  5 " >Libya</OPTION>
+
+<OPTION value= " 9.554 ,  47.151 ,  5 " >Liechtenstein</OPTION>
+
+<OPTION value= " 23.898 ,  55.335 ,  5 " >Lithuania</OPTION>
+
+<OPTION value= " 6.087 ,  49.77 ,  6 " >Luxembourg</OPTION>
+
+<OPTION value= " 21.697 ,  41.599 ,  5 " >Macedonia</OPTION>
+<OPTION value= " 46.706 ,  -19.373 ,  5 " >Madagascar</OPTION>
+
+<OPTION value= " 34.307 ,  -13.215 ,  5 " >Malawi</OPTION>
+<OPTION value= " 109.708 ,  3.792 ,  5 " >Malaysia</OPTION>
+
+<OPTION value= " 73.252 ,  3.216 ,  5 " >Maldives</OPTION>
+
+<OPTION value= " -3.524 ,  17.35 ,  5 " >Mali</OPTION>
+
+<OPTION value= " 14.44 ,  35.89 ,  5 " >Malta</OPTION>
+
+<OPTION value= " 168.62 ,  7.643 ,  5 " >Marshall Islands </OPTION>
+
+<OPTION value= " -61.021 ,  14.652 ,  5 " >Martinique</OPTION>
+
+<OPTION value= " -10.332 ,  20.259 ,  5 " >Mauritania</OPTION>
+
+<OPTION value= " 57.87 ,  -20.25 ,  5 " >Mauritius</OPTION>
+
+<OPTION value= " 45.138 ,  -12.818 ,  5 " >Mayotte</OPTION>
+
+<OPTION value= " -102.533 ,  23.95 ,  5 " >Mexico</OPTION>
+
+<OPTION value= " 159.4 ,  6.49 ,  5 " >Micronesia ,  Fed. States
+of </OPTION>
+<OPTION value= " -177.378 ,  28.205 ,  5 " >Midway Is.</OPTION>
+
+<OPTION value= " 28.473 ,  47.193 ,  5 " >Moldova ,  Republic of </OPTION>
+
+<OPTION value= " 7.412 ,  43.747 ,  5 " >Monaco</OPTION>
+<OPTION value= " 103.083 ,  46.835 ,  5 " >Mongolia</OPTION>
+
+<OPTION value= " -62.186 ,  16.735 ,  5 " >Montserrat</OPTION>
+
+<OPTION value= " -6.317 ,  31.883 ,  5 " >Morocco</OPTION>
+
+<OPTION value= " 35.552 ,  -17.26 ,  5 " >Mozambique</OPTION>
+<OPTION value= " 96.506 ,  21.154 ,  5 " >Myanmar</OPTION>
+
+<OPTION value= " 17.218 ,  -22.133 ,  5 " >Namibia</OPTION>
+
+<OPTION value= " 166.929 ,  -0.522 ,  5 " >Nauru</OPTION>
+
+<OPTION value= " 83.938 ,  28.253 ,  5 " >Nepal</OPTION>
+
+<OPTION value= " 5.603 ,  52.249 ,  5 " >Netherlands</OPTION>
+
+<OPTION value= " -68.693 ,  12.187 ,  5 " >Netherlands Antilles </OPTION>
+<OPTION value= " 165.715 ,  -21.316 ,  5 " >New Caledonia </OPTION>
+
+<OPTION value= " 171.779 ,  -41.838 ,  5 " >New Zealand</OPTION>
+
+<OPTION value= " -85.034 ,  12.839 ,  5 " >Nicaragua</OPTION>
+
+<OPTION value= " 9.397 ,  17.426 ,  5 " >Niger</OPTION>
+<OPTION value= " 8.105 ,  9.593 ,  5 " >Nigeria</OPTION>
+
+<OPTION value= " -169.86 ,  -19.05 ,  5 " >Niue</OPTION>
+
+<OPTION value= " 167.952 ,  -29.037 ,  5 " >Norfolk Island</OPTION>
+<OPTION value= " 145.679 ,  15.088 ,  5 " >Northern Mariana Islands </OPTION>
+
+<OPTION value= " 14.084 ,  64.448 ,  5 " >Norway</OPTION>
+
+<OPTION value= " 56.109 ,  20.602 ,  5 " >Oman</OPTION>
+
+<OPTION value= " 69.385 ,  29.967 ,  5 " >Pakistan</OPTION>
+
+<OPTION value= " 134.568 ,  7.501 ,  5 " >Palau</OPTION>
+<OPTION value= " -80.102 ,  8.507 ,  5 " >Panama</OPTION>
+
+<OPTION value= " 145.241 ,  -6.478 ,  5 " >Papua New Guinea </OPTION>
+<OPTION value= " -58.391 ,  -23.236 ,  5 " >Paraguay</OPTION>
+
+<OPTION value= " -74.375 ,  -9.163 ,  5 " >Peru</OPTION>
+<OPTION value= " 122.879 ,  11.742 ,  5 " >Philippines</OPTION>
+
+<OPTION value= " -128.593 ,  -24.476 ,  5 " >Pitcairn</OPTION>
+
+<OPTION value= " 19.4 ,  52.124 ,  5 " >Poland</OPTION>
+<OPTION value= " -8.56 ,  39.6 ,  5 " >Portugal</OPTION>
+
+<OPTION value= " -66.462 ,  18.221 ,  5 " >Puerto Rico</OPTION>
+
+<OPTION value= " 51.191 ,  25.31 ,  6 " >Qatar</OPTION>
+
+<OPTION value= " 55.538 ,  -21.121 ,  5 " >Reunion</OPTION>
+
+<OPTION value= " 24.969 ,  45.843 ,  5 " >Romania</OPTION>
+
+<OPTION value= " 96.577 ,  61.946 ,  3 " >Russia</OPTION>
+
+<OPTION value= " 29.917 ,  -1.997 ,  5 " >Rwanda</OPTION>
+
+<OPTION value= " -172.159 ,  -13.758 ,  5 " >Samoa</OPTION>
+
+<OPTION value= " 12.46 ,  43.942 ,  6 " >San Marino</OPTION>
+
+<OPTION value= " 6.73659 ,  0.456 ,  5 " >Sao Tome and Principe </OPTION>
+
+<OPTION value= " 44.546 ,  24.122 ,  5 " >Saudi Arabia</OPTION>
+
+<OPTION value= " -14.467 ,  14.366 ,  5 " >Senegal</OPTION>
+
+<OPTION value= " 52.23 ,  -6.354 ,  5 " >Seychelles</OPTION>
+<OPTION value= " -11.791 ,  8.56 ,  5 " >Sierra Leone</OPTION>
+
+<OPTION value= " 103.8 ,  1.35 ,  5 " >Singapore</OPTION>
+
+<OPTION value= " 19.491 ,  48.707 ,  5 " >Slovakia (Slovak Republic) </OPTION>
+<OPTION value= " 14.82 ,  46.12 ,  5 " >Slovenia</OPTION>
+
+<OPTION value= " 159.63 ,  -8.918 ,  5 " >Solomon Islands </OPTION>
+
+<OPTION value= " 45.862 ,  6.063 ,  5 " >Somalia</OPTION>
+<OPTION value= " 25.092 ,  -28.998 ,  5 " >South Africa</OPTION>
+
+<OPTION value= " -36.38 ,  -54.48 ,  5 " >South Georgia &amp; Sandwich I. </OPTION>
+
+<OPTION value= " 127.834 ,  36.375 ,  5 " >South Korea</OPTION>
+
+<OPTION value= " -3.649 ,  40.226 ,  5 " >Spain</OPTION>
+<OPTION value= " 80.704 ,  7.608 ,  5 " >Sri Lanka</OPTION>
+
+<OPTION value= " -5.717 ,  -15.961 ,  5 " >St. Helena</OPTION>
+<OPTION value= " -62.753 ,  17.326 ,  6 " >St. Kitts &amp; Nevis </OPTION>
+
+<OPTION value= " -56.306 ,  46.93 ,  5 " >St. Pierre and Miquelon </OPTION>
+
+<OPTION value= " -61.193 ,  13.254 ,  7 " >St. Vincent &amp; the
+Grenadines </OPTION>
+
+<OPTION value= " 30.049 ,  13.831 ,  5 " >Sudan</OPTION>
+
+<OPTION value= " -55.911 ,  4.126 ,  5 " >Suriname</OPTION>
+
+<OPTION value= " 18.483 ,  78.863 ,  5 " >Svalbard</OPTION>
+
+<OPTION value= " 31.497 ,  -26.562 ,  5 " >Swaziland</OPTION>
+
+<OPTION value= " 16.739 ,  62.789 ,  5 " >Sweden</OPTION>
+
+<OPTION value= " 8.234 ,  46.802 ,  5 " >Switzerland</OPTION>
+
+<OPTION value= " 38.505 ,  35.013 ,  5 " >Syria</OPTION>
+
+<OPTION value= " 121 ,  23.63 ,  5 " >Taiwan</OPTION>
+<OPTION value= " 71.042 ,  38.528 ,  5 " >Tajikistan</OPTION>
+
+<OPTION value= " 34.823 ,  -6.27 ,  5 " >Tanzania</OPTION>
+
+<OPTION value= " 101.017 ,  15.127 ,  5 " >Thailand</OPTION>
+
+<OPTION value= " -76.546 ,  24.201 ,  5 " >The Bahamas</OPTION>
+
+<OPTION value= " -15.386 ,  13.452 ,  5 " >The Gambia</OPTION>
+
+<OPTION value= " 125.853 ,  -8.822 ,  5 " >Timor Leste</OPTION>
+
+<OPTION value= " 0.975 ,  8.53 ,  5 " >Togo</OPTION>
+
+<OPTION value= " -171.852 ,  -9.195 ,  5 " >Tokelau</OPTION>
+<OPTION value= " -174.836 ,  -20.402 ,  5 " >Tonga</OPTION>
+
+<OPTION value= " -61.253 ,  10.468 ,  5 " >Trinidad and Tobago</OPTION>
+
+<OPTION value= " 9.561 ,  34.11 ,  5 " >Tunisia</OPTION>
+
+<OPTION value= " 35.179 ,  39.06 ,  5 " >Turkey</OPTION>
+
+<OPTION value= " 58.39 ,  39.218 ,  5 " >Turkmenistan</OPTION>
+
+<OPTION value= " -71.812 ,  21.836 ,  5 " >Turks and Caicos Islands</OPTION>
+
+<OPTION value= " 178.557 ,  -7.827 ,  5 " >Tuvalu</OPTION>
+
+<OPTION value= " 32.386 ,  1.279 ,  5 " >Uganda</OPTION>
+
+<OPTION value= " 31.387 ,  49.017 ,  5 " >Ukraine</OPTION>
+<OPTION value= " 54.335 ,  23.91 ,  5 " >United Arab Emirates</OPTION>
+
+<OPTION value= " -2.895 ,  54.155 ,  5 " >United Kingdom</OPTION>
+
+<OPTION value= " -112.491 ,  45.695 ,  3 " >U.S.A.</OPTION>
+
+<OPTION value= " -56.012 ,  -32.799 ,  5 " >Uruguay</OPTION>
+
+<OPTION value= " 63.169 ,  41.750 ,  5 " >Uzbekistan</OPTION>
+
+<OPTION value= " 167.718 ,  -16.255 ,  5 " >Vanuatu</OPTION>
+
+<OPTION value= " 12.451 ,  41.903 ,  5 " >Vatican City</OPTION>
+
+<OPTION value= " -66.169 ,  7.122 ,  5 " >Venezuela</OPTION>
+
+<OPTION value= " 106.3 ,  16.65 ,  5 " >Vietnam</OPTION>
+<OPTION value= " -64.53 ,  18.44 ,  5 " >Virgin Islands (British)</OPTION>
+
+<OPTION value= " -64.78 ,  17.74 ,  5 " >Virgin Islands (U.S.)</OPTION>
+
+<OPTION value= " -177.150 ,  -13.787 ,  5 " >Wallis &amp; Futuna</OPTION>
+
+<OPTION value= " -13.136 ,  24.661 ,  5 " >Western Sahara</OPTION>
+
+<OPTION value= " 47.599 ,  15.905 ,  5 " >Yemen</OPTION>
+
+<OPTION value= " 27.798 ,  -13.453 ,  5 " >Zambia</OPTION>
+
+<OPTION value= " 29.871 ,  -19 ,  5 " >Zimbabwe</OPTION>
+
+<OPTION value= " 20 ,  60.2 ,  5 " >&Aring;land</OPTION>
+
+</select>
+
+</td></tr>
+<tr>
+
+<td rowspan="2" style="vertical-align:top">
+<textarea id="show"  cols="50" rows="22" title="Polyline array."></textarea>
+
+</td>
+
+<td>
+
+<script type="text/javascript"><!--
+google_ad_client = "pub-3649938975494252";
+google_ad_width = 468;
+google_ad_height = 60;
+google_ad_format = "468x60_as";
+google_ad_type = "text_image";
+google_ad_channel ="2676021345";
+google_color_border = "CCCCFF";
+google_color_bg = "CCCCFF";
+google_color_link = "0000CC";
+google_color_url = "008000";
+google_color_text = "000000";
+//--></script>
+
+<script type="text/javascript"
+  src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+
+</script>
+</td></tr>
+<tr><td>
+
+<br/>
+
+<strong>Drawing a route (public transit etc)</strong>
+
+<ul>
+
+<li> Find the country of interest by the [Go to] selector
+<li> Keep on doubleclicking until you are in the right place
+<li> Keyboard shortcuts available (arrows, [+], [-])
+<li> [Clear map]
+
+<li> Draw the route by clicking the turn points ([Polyline] checked)
+
+
+
+<li> Click[Add marker] before you click a bus stop point
+
+
+<li> Replace the "point #" comments by something more meaningful
+<li> If you make a mistake, you can delete the code of that point on the text area anytime
+
+<li> Test the edited code by first clicking [Clear map] and then [Draw poly] and for markers: [Execute script]
+<li> Tip: [shift]+[reload] clears cache. Bookmarking keeps you in location.
+<li>
+<a href=http://koti.mbnet.fi/ojalesa/exam/design_aid.html>Map layout design aid.</a>
+</ul>
+<strong>The other way</strong>
+<ul>
+
+<li> You can edit the generated code or write any script in the upper text area (marker code area)
+
+
+
+
+
+<li>  Clicking [Execute script] runs the script
+<li>  Try writing e.g. 'map.zoomOut()'
+
+<li>  Variable name of the map is creatively 'map'. Markers are arrayed 'marker[pn]' where 'pn' is the point number printed in comments.
+<li>  [Log] checkbox enables map and marker events, which are displayed on GLog. Marker events are shown for the markers created by the button, not for those loaded from script area (unless you type a listener with GLog.write()).
+<li>  Listened events can be seen in the end of source code.
+<li>  Remember that GLog will not open again if it is closed.
+<li>  With FF1.5 remembering form contents you can reload without losing any data. Bookmarking keeps the location.
+<li> See also <a href=http://koti.mbnet.fi/ojalesa/exam/events_v2x.html>event test pages.</a>
+
+</ul>
+<strong>Technical</strong>
+
+<ul>
+<li> GMap2 v2.44+
+<li> SVG
+<li> JavaScript only
+
+</ul>
+
+<strong>General</strong>
+
+<ul>
+
+<li> &copy; Esa Ojala 2006
+
+
+<li> Feel free to copy and distribute UNMODIFIED source code
+<li> Feel free to test modifications locally
+<li> <a href="http://koti.mbnet.fi/ojalesa/exam/index.html">Index page.</a>
+<li> gmapsapiATgmailDOTcom
+</ul>
+
+</td></tr>
+
+</table>
+
+
+<script type="text/javascript">
+
+//SVG
+
+_mSvgEnabled = true;
+_mSvgForced  = true;
+_mPreferMetric=true;
+
+
+//comment counter
+var pn=0; //point number
+
+//bookmarking
+
+var config=[];
+var hash = window.location.hash.substring(1);
+var pairs = hash.split("&");
+for (var i=0; i < pairs.length; i++) {
+var apair = pairs[i].split("=");
+if (apair[0]) { config[apair[0]] = apair[1]; }
+}
+var slat=parseFloat(config['lat'])||60.127;
+var slng=parseFloat(config['lng'])||24.94;
+var szoom=parseInt(config['zoom'])||10;
+var type=config['ty']||2;
+
+////create map
+
+var map = new GMap2(document.getElementById("map"),
+[G_NORMAL_MAP,G_SATELLITE_MAP,G_HYBRID_MAP]);
+map.setCenter(new GLatLng(slat,slng),szoom);
+map.setMapType(map.getMapTypes()[type]);
+map.addControl(new GLargeMapControl(0,1));
+map.addControl(new GMapTypeControl(1));
+map.addControl(new GScaleControl(300));
+new GKeyboardHandler(map);
+var mini=new GOverviewMapControl(new GSize(200, 150));
+map.addControl(mini);
+var omap=document.getElementById("map_overview");
+var place=document.getElementById("map");
+place.appendChild(omap); 
+//omap.style.position = "absolute";
+omap.style.right = "0px";
+omap.style.bottom = "8px";
+setTimeout("mini.getOverviewMap().setMapType(G_SATELLITE_MAP);",1);
+map.hideControls();
+
+////'mouseover' listener shows controls
+
+GEvent.addListener(map, "mouseover", function(){
+map.showControls();
+});
+
+////'mouseout' listener hides controls
+
+GEvent.addListener(map, "mouseout", function(){
+map.hideControls(); 
+});
+
+//update url
+
+function updateHash() {
+var ty=0;
+for(var t=0;t<4;t++){
+if(map.getCurrentMapType()==map.getMapTypes()[t]){ty=t};
+}
+var curcent = map.getCenter();
+var curzoom = map.getZoom();
+window.location.hash = "#lat="+curcent.lat().toFixed(4)+"&lng="+curcent.lng().toFixed(4)+"&zoom="+curzoom+"&ty="+ty;
+}
+
+GEvent.addListener(map, "moveend", function() {updateHash();
+});
+
+//show/hide overview
+
+mini.hide();
+GEvent.addListener(map, "move", function(){
+mini.show();
+});
+GEvent.addListener(map, "mouseout", function(){
+mini.hide();
+map.closeInfoWindow();
+});
+
+
+//zoom display
+GEvent.addListener(map, "moveend",function()
+{document.getElementById("zooms").value = map.getZoom()});
+
+//doubleclick zoom
+GEvent.addListener(map, "dblclick",function(what,center){map.zoomIn();
+map.setCenter(center)
+});
+
+
+//'add marker' button
+
+var button=0;
+var nomore=1
+function add(){button=1; nomore=0;
+document.getElementById("add").value="adding";
+};
+
+
+////'mouseover' listener creates marker
+var marker=[]
+//var marker = new GMarker(new GLatLng(60.172 ,24.940));
+GEvent.addListener(map, "mouseover", function(edge){if (button ==1 &&
+nomore==0){
+marker[pn]=(new GMarker(new GLatLng(edge)));
+map.addOverlay(marker[pn]);
+nomore=1;
+}});
+
+
+////dragging
+
+GEvent.addListener(map, "mousemove", function(pnt){if (button ==1){ 
+marker[pn].setPoint(pnt);
+}});
+
+////'click' on map stops dragging
+////and creates event listeners and script
+
+
+GEvent.addListener(map, "click", function(){
+document.getElementById("add").value="Add marker";
+if (button ==1){
+createMarkerListener(marker[pn]);
+var mn = pn+1;
+var pushpin = marker[pn];
+GEvent.addListener(marker[pn], "click", function(){pushpin.openInfoWindowHtml("Point "+mn);});
+document.getElementById("markers").value += "map.addOverlay(new GMarker(new GLatLng(" +  document.getElementById("coord").value + ")));//point "+pn+"\n";
+pn++;
+}
+button = 0; 
+});
+
+
+///////polyline drawing
+
+function polyline(){
+
+//IE does not accept the end comma in array
+
+var string = document.getElementById('show').value;
+var lastcomma=string.lastIndexOf(",");
+string = string.substr("",lastcomma);
+
+eval("map.addOverlay(new GPolyline([" + string + "],'#FF0000', 2, 1));")
+}
+
+//polyline script generator
+
+var pint=[];
+
+GEvent.addListener(map, 'click', function(overlay,point) {
+if (point && document.getElementById("poly").checked==true) {pint.push(point);
+ 
+map.addOverlay(new GPolyline(pint,'#FF0000', 2, 1));
+document.getElementById("show").value += "new GLatLng(" +  document.getElementById("coord").value + "),//point "+(pn-1)+"\n";
+pn++;
+}
+}); 
+
+////selector display contents
+
+GEvent.addListener(map, "mousemove", function(point){
+
+var latLngStr6 = point.lat().toFixed(6) + ', ' + point.lng().toFixed(6) ;
+var latLngStr5 = point.lat().toFixed(5) + ', ' + point.lng().toFixed(5);
+var latLngStr4 = point.lat().toFixed(4) + ', ' + point.lng().toFixed(4);
+var latLngStr3 = point.lat().toFixed(3) + ', ' + point.lng().toFixed(3);
+var latLngStr2 = point.lat().toFixed(2) + ', ' + point.lng().toFixed(2);
+
+//FF and IE
+
+document.getElementById("coord").options[0].text = latLngStr6;
+document.getElementById("coord").options[1].text = latLngStr5;
+document.getElementById("coord").options[2].text = latLngStr4;
+document.getElementById("coord").options[3].text = latLngStr3; 
+document.getElementById("coord").options[4].text = latLngStr2;
+
+document.getElementById("coord").options[0].value = latLngStr6;
+document.getElementById("coord").options[1].value = latLngStr5;
+document.getElementById("coord").options[2].value = latLngStr4;
+document.getElementById("coord").options[3].value = latLngStr3; 
+document.getElementById("coord").options[4].value = latLngStr2;
+});
+
+//Esa's country selector.
+//Parse long, lat, zoom from selector values:
+
+function go() {
+lng = parseFloat(document.getElementById("maahan").value.split(",")[0]);
+lat = parseFloat(document.getElementById("maahan").value.split(",")[1]);
+scale = parseInt(document.getElementById("maahan").value.split(",")[2]);
+map.setCenter(new GLatLng(lat,lng),scale);
+}
+
+////Creating listeners for map and marker
+
+var event = [];
+var listen = '';
+var i = 0;
+
+function mapListener(listen){
+GEvent.addListener(map, listen, function()
+{if(document.getElementById("log").checked==true)
+{GLog.write('map.'+listen)
+}});
+};
+
+function markerListener(listen,marker){
+GEvent.addListener(marker, listen,function()
+{if(document.getElementById("log").checked==true)
+{GLog.write('marker.'+listen)
+}});
+};
+
+event[0] = 'addmaptype';
+event[1] = 'addoverlay';
+event[2] = 'clearoverlays';
+event[3] = 'click';
+event[4] = 'contextmenu';
+event[5] = 'drag';
+event[6] = 'dragend';
+event[7] = 'dragstart';
+event[8] = 'infowindowclose';
+event[9] = 'infowindowopen';
+event[10] = 'maptypechanged';
+event[11] = 'mousedown';
+event[12] = 'mouseout';
+event[13] = 'mouseover';
+event[14] = 'mouseup';
+event[15] = 'move';
+event[16] = 'moveend';
+event[17] = 'movestart';
+event[18] = 'remove';
+event[19] = 'removemaptype';
+event[20] = 'removeoverlay';
+event[21] = 'resize';
+event[22] = 'zoom';
+event[23] = 'zoomend';
+event[24] = 'dblclick';
+event[25] = 'infowindowbeforeclose';
+event[26] = 'zoomstart';
+
+
+for(var i=0; i<event.length; i++){listen = event[i];
+mapListener(listen);
+};
+
+function createMarkerListener(marker){
+for(var i=0; i<event.length; i++){listen = event[i];
+markerListener(listen,marker);
+};
+};
+
+//Idea and JavaScript by Esa
+//Copyright 2006 Esa Ojala
+//Please do not publish modified versions on net. Try them locally.
+//Modification restriction covers AdSense and Statcounter too.
+
+
+
+</script>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript" language="javascript">
+var sc_project=1450211; 
+var sc_invisible=1; 
+var sc_partition=13; 
+var sc_security="4fabe28e"; 
+</script>
+
+<script type="text/javascript" language="javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><a href="http://www.statcounter.com/" target="_blank"><img  src="http://c14.statcounter.com/counter.php?sc_project=1450211&java=0&security=4fabe28e&invisible=1" alt="counter customizable free hit" border="0"></a> </noscript>
+<!-- End of StatCounter Code -->
+
+
+</body>
+
+</html>
+
+

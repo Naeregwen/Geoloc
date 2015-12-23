@@ -1,0 +1,331 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+<title>G&eacute;olocalisateur</title>
+
+<!--  Identité de l'application -->
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
+<meta http-equiv="Content-Language" content="fr-FR"/>
+<meta http-equiv="Expires" content="+1"/>
+
+<!-- C'est dynamique inutile de conserver de telles données -->   
+<meta name="Robots" content="NoArchive"/> <!-- compris par google -->
+<meta name="Robots" content="NoIndex, NoFollow"/>
+
+<meta name="keywords" lang="fr-FR" content="g&eacute;olocateur, g&eacute;olocation, googlemaps"/>
+<meta name="Description" lang="fr-FR" content="g&eacute;olocateur"/>
+<meta Name="Category" lang="fr-FR" Content="g&eacute;olocation"/>
+<meta name="Rating" lang="fr-FR" content="General"/>
+<meta name="Distribution" lang="fr-FR" content="local"/>
+<meta Name="Author" Content="Naeregwen"/>
+<meta name="Generator" lang="en" content="Eclipse 3.2 and WTP 1.5"/>
+<meta name="Generator" lang="en" content="Ajax Toolkit Framework 0.1, an Eclipse Web Tools Incubator Project, http://www.eclipse.org/atf/"/>
+<meta name="Generator" lang="en" content="dojo toolkit 0.4.1, the open source toolkit for professional web, http://dojotoolkit.org/"/>
+<meta name="Date-Creation-yyyymmdd" content="20061221"/>
+<meta Name="Date-Revision-yyyymmdd" Content="20070120"/>
+<meta name="Identifier-URL" content="http://localhost/Geoloc/Geoloc/Geoloc.html"/>
+<meta name="Revisit-After" lang="en" content="1 year"/>
+
+<!--  Mise en Page  -->
+<link rel="stylesheet" type="text/css" href="style/style.css">
+<link rel="shortcut icon" href="icons/Planete.ico">
+<!-- <link rel="icon" href="favicona.gif" type="image/gif"> -->
+
+<!--  Début du code -->
+<script type="text/javascript">
+	var djConfig = {
+	isDebug: true,
+	//debugAtAllCosts = true,
+	debugContainerId: '_dojoDebugConsole'
+	};
+</script>
+<!--  Composants de la librairie dojo utilisé par l'application -->
+<script type="text/javascript" src="../dojoAjax/dojo.js"></script>
+<script language="JavaScript" type="text/javascript">
+	// Evenements
+	dojo.require("dojo.event.*");
+	// Mise en page
+	dojo.require("dojo.widget.LayoutContainer");
+	dojo.require("dojo.widget.ContentPane");
+	dojo.require("dojo.widget.LinkPane");
+	dojo.require("dojo.widget.SplitContainer");
+	dojo.require("dojo.widget.TabContainer");
+	// Options
+	dojo.require("dojo.widget.AccordionContainer");
+	dojo.require("dojo.widget.Checkbox");
+	dojo.require("dojo.widget.IntegerTextbox");
+	// Dialogue
+	dojo.require("dojo.widget.Dialog");
+	// Console de mise au point
+	dojo.require("dojo.widget.TitlePane");
+	dojo.hostenv.writeIncludes();		
+</script>
+
+<!--  Composants utilitaires de l'application -->
+<script type="text/javascript" src="util/util.js"></script>
+<script type="text/javascript" src="util/PopupList.js"></script>
+<script type="text/javascript" src="util/Suggests.js"></script>
+<script type="text/javascript" src="util/EditInPlace.js"></script>
+<script type="text/javascript" src="util/elabel.js"></script>
+
+<!--  Composants dédiés aux cartes google utilisés par l'application -->
+<script type="text/javascript" src="util/EasyMap.js"></script>
+<script type="text/javascript" src="util/MapCache.js"></script>
+<script type="text/javascript" src="util/MapCluster.js"></script>
+<script type="text/javascript" src="util/MapControls.js"></script>
+<script type="text/javascript" src="util/Gzoom.js"></script>
+<script type="text/javascript" src="util/GRuler.js"></script>
+<script type="text/javascript" src="util/GMouse.js"></script> 
+<script type="text/javascript" src="util/InitMap.js"></script>
+</head>
+
+<body onUnload="GUnload()">
+
+<div id="Layout" dojoType="LayoutContainer" layoutChildPriority="top-bottom">
+	
+	<!--  Barre de commandes du haut -->
+	<form id="mapForm" action="#" onSubmit="gotoAddress(null); return false">
+	<div id="BarreDeCommande" dojoType="ContentPane" layoutAlign="top">
+	  <div id="toolbar" class="toolbar">
+	  	<span class="statusIcon" >
+	 	<img id="statusIcon" src="icons/Planete.jpg" alt="ic&ocirc;ne de statut"/>
+	 	</span>
+		<span class="ZoneDeSaisie">
+			Entrez une adresse&nbsp;:&nbsp;
+			<input id="adresseDemandee" type="text" value="" size="100" onFocus="this.select()" alt="Indiquez une addresse dans ce champ puis cliquez sur le bouton &agrave; droite pour lancer la recherche" title="Indiquez une addresse dans ce champ puis cliquez sur le bouton &agrave; droite pour lancer la recherche"/>
+		</span>	
+		<button type="button" onClick="gotoAddress(this);" alt="Aller &agrave; l&acute;adresse indiqu&eacute;e" title="Aller &agrave; l&acute;adresse indiqu&eacute;e">
+			<img class="CmdBtn" src="icons/go.png" alt=""/>
+		</button>
+		<button type="button" id="baseButton" onClick="dojo.widget.byId('EasyMap').toggleIconType('base', this)" alt="Ajouter un marqueur simple" title="Ajouter un marqueur simple">
+			<img class="CmdBtn" src="icons/Goutte.png" alt=""/>
+		</button>
+		<button type="button" id="locButton"  onClick="dojo.widget.byId('EasyMap').toggleIconType('loc', this)" alt="Ajouter un marqueur de lieu" title="Ajouter un marqueur de lieu">
+			<img class="CmdBtn" src="icons/Maison.png" alt=""/>
+		</button>
+		<button type="button" id="gLocButton" onClick="dojo.widget.byId('EasyMap').toggleIconType('gLoc', this)" alt="Ajouter un marqueur de groupe" title="Ajouter un marqueur de groupe">
+			<img class="CmdBtn" src="icons/GroupeMaison.png" alt=""/>
+		</button>
+		<button type="button" id="toggleMapPane" onClick="togglePanes(this, 'EasyMap')" alt="Masquer la carte" title="Masquer la carte">
+ 			<img class="CmdBtn" src="icons/index.png" alt=""/>
+		</button>
+		<button type="button" id="toggleMarkersPane" onClick="togglePanes(this, 'optionsTabContainer')" alt="Masquer la liste des marqueurs" title="Masquer la liste des marqueurs">
+			<img class="CmdBtn" src="icons/worldmap.gif" alt=""/>
+		</button>
+		<!-- 	  
+		<input type="button" id="useRuler" value="Ruler" onclick="useRuler()" title="Regle"/>
+		 -->
+		<button type="button" onClick="openHelp(this);" alt="Aide" title="Aide">
+			<img class="CmdBtn" src="icons/Aide.gif" alt=""/>
+		</button>
+	  </div>
+	</div>
+	</form>
+	
+	<!-- Panneaux centraux de la page -->
+	<div dojoType="SplitContainer" id="MapSplitter" orientation="horizontal" persist="false" sizerWidth="5" activeSizing="false" layoutAlign="client">
+		
+		<!-- Panneau de la liste de marqueurs, de l'historique -->
+		<div id="optionsTabContainer" dojoType="TabContainer" sizeMin="0" sizeShare="30" selectedChild="Navigation">	
+			
+			<div id="Navigation" dojoType="TabContainer" label="Navigation" sizeMin="0" selectedChild="Marqueurs">	
+
+				<div id="Marqueurs" dojoType="ContentPane" label="Marqueurs">
+					<div class="toolbar">
+		      			<button type="button" onClick="sortSelectList('markersList', true, this)" alt="Trier la liste en ordre ascendant" title="Trier la liste en ordre ascendant">
+		        			<img class="CmdBtn" src="icons/FlecheH.png" alt="Tri Ascendant"/>
+		      			</button>
+		      			<button type="button" onClick="sortSelectList('markersList', false, this)" alt="Trier la liste en ordre descendant" title="Trier la liste en ordre descendant">
+		        			<img class="CmdBtn" src="icons/FlecheB.png" alt="Tri Descendant"/>
+		      			</button>
+		      			<button type="button" id="cmdIndex" onClick="toggleIndex(this)" alt="Afficher le clavier d'index des marqueurs" title="Afficher le clavier d'index des marqueurs">
+		        			<img class="CmdBtn" src="icons/keyboard.png" alt="Index"/>
+		      			</button>
+		      			<button type="button" id="cmdExport" onClick="dojo.widget.byId('EasyMap').export_markers(this)" alt="Cr&eacute;er un fichier &agrave; partir des marqueurs" title="Cr&eacute;er un fichier &agrave; partir des marqueurs">
+		        			<img class="CmdBtn" src="icons/export.png" alt="Index"/>
+		      			</button>
+						<div id="markersIndex" class="markersIndex"></div>
+					</div>
+					<div id="MessageListeMarqueurs">La Liste des marqueurs est vide.</div>
+					<div id="ZoneDesMarqueurs" style="width:100%">
+						<select id="markersList" size="40%" style="width:100%" onChange="dojo.widget.byId('EasyMap').gotoSelectedMarker()" onDblClick="dojo.widget.byId('EasyMap').zoomOnMarker(this)"></select>
+					</div>
+				</div>
+
+				<div id="ListePays" dojoType="ContentPane" label="Pays">
+					<div class="toolbar">
+		      			<button type="button" id="cmdAscSortCountries" onClick="sortSelectList('countriesList', true, this)" alt="Trier la liste en ordre ascendant" title="Trier la liste en ordre ascendant">
+		        			<img class="CmdBtn" src="icons/FlecheH.png" alt="Tri Ascendant"/>
+		      			</button>
+		      			<button type="button" id="cmdDescSortCountries" onClick="sortSelectList('countriesList', false, this)" alt="Trier la liste en ordre descendant" title="Trier la liste en ordre descendant">
+		        			<img class="CmdBtn" src="icons/FlecheB.png" alt="Tri Descendant"/>
+		      			</button>
+		      			<button type="button" id="cmdLoadCountries" onClick="dojo.widget.byId('EasyMap').loadCountries()" alt="Charger la liste des pays" title="Charger la liste des pays">
+		        			<img class="CmdBtn" src="icons/export.png" alt="Index"/>
+		      			</button>
+		      			<button type="button" id="cmdClearCountries" onClick="dojo.widget.byId('EasyMap').clearCountries()" alt="Effacer la liste des pays" title="Effacer la liste des pays">
+		        			<img class="CmdBtn" src="icons/corbeille.png" alt="Index"/>
+		      			</button>
+					</div>
+					<div id="MessageListePays">La Liste des pays est vide.<br/>Cliquer sur le bouton de commande &laquo;&nbsp;charger la liste des pays&nbsp;&raquo; pour l&acute;utiliser.</div>
+					<select id='countriesList' size="40" style="width:100%; display:none;" onChange="dojo.widget.byId('EasyMap').gotoCountry()" ></select>
+				</div>
+
+			</div>
+			
+			<div id="Options" dojoType="ContentPane" label="Options">			
+				<div dojoType="AccordionContainer" labelNodeClass="label" containerNodeClass="accBody"
+					style="border: 2px solid black;" id="AccordeonOptions"
+				>
+					<div dojoType="ContentPane" selected="true" label="Carte" style="overflow:auto">
+					<form name="optionsForm">
+<!-- 	  
+
+						<div class="optionTitle">Affichage</div>
+						<br/>
+						<input type="checkbox" name="optMarkerAll"   id="optMarkerAll"   onClick="" dojoType="Checkbox" checked/> <label for="optMarkerAll">Afficher tous les marqueurs</label><br />
+						<input type="checkbox" name="optMarkerSOnly" id="optMarkerSOnly" onClick="" dojoType="Checkbox" /> <label for="optMarkerSOnly">Afficher uniquement les marqueurs simples</label><br />
+						<input type="checkbox" name="optMarkerLOnly" id="optMarkerLOnly" onClick="" dojoType="Checkbox" /> <label for="optMarkerLOnly">Afficher uniquement les marqueurs de lieu</label><br />
+						<input type="checkbox" name="optMarkerGOnly" id="optMarkerGOnly" onClick="" dojoType="Checkbox" /> <label for="optMarkerGOnly">Afficher uniquement les marqueurs de groupe</label><br />
+						<hr/>
+-->
+						<div class="optionTitle">Outils</div>
+						<br/>
+						<input type="checkbox" name="optMapTools" id="optMapTools" onClick="CtrlClick();" dojoType="Checkbox" /> <label for="optMapTools">Masquer les outils</label><br />
+						<hr/>
+						<div class="optionTitle">Zooms</div>
+						<br/>
+						<input type="checkbox" name="optGZoom" id="optGZoom" onClick="dojo.widget.byId('EasyMap').GZoom.buttonClick_();" dojoType="Checkbox" /> <label for="optGZoom">Activer le zoom selectif</label><br />
+						&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="optTimeGZoom" id="PersistantZoom" value="persistant"/><span id="TimeGZoomLblP" class="optionLabel" onClick="dojo.widget.byId('EasyMap').setStickyZoom(true)">Zoom selectif persistant</span><br/>
+						&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="optTimeGZoom" id="TemporaryZoom" value="temporary" checked/><span id="TimeGZoomLblT" class="optionLabel" onClick="dojo.widget.byId('EasyMap').setStickyZoom(false)">Zoom selectif temporaire</span><br/>					
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ms&nbsp;:&nbsp;<div dojoType="IntegerSpinner"  widgetId="zoomTime" value="10" delta="100" min="10" max="5000" separator="." maxlength="5" size="5" rangeMessage="&lt;span style='color:red'&gt;* Cette valeur est hors limites.&lt;/span&gt;" invalidMessage="&lt;span style='color:red'&gt;* La valeur saisie est incorrecte.&lt;/span&gt;"></div><br/>
+						<input type="checkbox" name="optDblClick" id="optDblClick" onClick="DblClick();" dojoType="Checkbox" /> <label for="optDblClick">Activer les zooms par double click sur la carte</label><br />
+						<!--
+						<hr/>
+						<div class="optionTitle">Divers</div>
+						<br/>
+						<input type="checkbox" name="optToolTips" id="optToolTips" onClick="SetToolTips();" dojoType="Checkbox" /> <label for="optToolTips">Afficher les bulles d&acute;aide sur les marqueurs</label><br />					
+						-->
+					</form>
+					</div>
+					
+					<div dojoType="ContentPane" label="Application" style="align:center">
+						<div class="optionTitle">Cache du g&eacute;ocodeur</div>
+						<br/>
+						<div align="center">
+						<button type="button" onclick="dojo.widget.byId('EasyMap').resetCache()">Vider le cache</button>
+						<button type="button" onclick="dojo.widget.byId('EasyMap').initCache()">R&eacute;initialiser le cache</button>
+						<hr/>
+						</div>
+						<div dojoType="TitlePane" label="Console" labelNodeClass="console" containerNodeClass="consoleContent" open="true" style="overflow:auto">
+				 			<div id="_dojoDebugConsole"></div>
+						</div>
+					
+					</div>
+				</div>			
+			</div>
+<!-- 			
+			<div id="Sauvegarde" dojoType="ContentPane" label="Sauvegarde">
+				Nom du fichier &agrave; sauvegarder&nbsp;:&nbsp;<br/>
+				<input type="text" id="storageKey" size="40">&nbsp;
+				<button type="button" id="saveDoc" onClick="dojo.widget.byId('EasyMap').save(this)" alt="Enregistrer les marqueurs" title="Enregistrer les marqueurs">
+		 			<img class="CmdBtn" src="icons/save.png" alt=""/>
+				</button>
+				<br/><br/>
+				Nom du fichier &agrave; charger&nbsp;:&nbsp;<br/>
+				<select id="savedKeys" size="1" style="clear: none;"><option value=""></option></select>&nbsp;
+				<button type="button" id="loadDoc" onClick="dojo.widget.byId('EasyMap').load(this)" alt="Charger les marqueurs" title="Charger les marqueurs">
+		 			<img class="CmdBtn" src="icons/open.png" alt=""/>
+				</button>
+				<hr/>
+				<div id="providerMetadataContainer">
+					<div class="providerMetadata">
+						Sauvegarde disponible :
+						<span id="isSupported" class="providerMetadataValue">Non</span>
+					</div>						
+					<div class="providerMetadata">
+						Persistence support&eacute;e :						
+						<span id="isPersistent" class="providerMetadataValue">Inconnue</span>
+					</div>					
+					<div class="providerMetadata">
+						Configuration par interface graphique :						
+						<span id="hasUIConfig" class="providerMetadataValue">Inconnue</span>
+					</div>					
+					<div class="providerMetadata">
+						Taille maximum :						
+						<span id="maximumSize" class="providerMetadataValue">Inconnue</span>
+					</div>					
+					<div class="providerMetadata">
+						Informatons compl&eacute;mentaires :						
+						<span id="moreInfo" class="providerMetadataValue">Aucune</span>
+					</div>
+				</div>
+ 			</div>
+ -->			
+			<div id="Aide" onClick="this.blur()" dojoType="TabContainer" label="Aide" sizeMin="20" selectedChild="AideIntro">
+				<a id="AideIntro"     dojoType="LinkPane" href="htm/aide/aide.html">Introduction</a>				
+				<a id="AideAdresses"  dojoType="LinkPane" href="htm/aide/adresses.html">Adresses</a>
+				<a id="AideMarqueurs" dojoType="LinkPane" href="htm/aide/marqueurs.html">Marqueurs</a>
+				<a id="AideCarte"     dojoType="LinkPane" href="htm/aide/carte.html">Carte</a>
+			</div>
+		
+		</div>					
+		
+		<!-- Panneau de la carte -->
+		<!-- le style="height:100%" est necéssaire -->
+		<div id="EasyMap" dojoType="EasyMap" sizeMin="500" style="height:100%" sizeShare="70" onResized="dojo.widget.byId('EasyMap').map.checkResize()">
+		Chargement de la carte...
+		</div>		
+	
+	</div>
+	
+	<!--  Barre de statut -->
+	<div id="StatusBar" dojoType="ContentPane" layoutAlign="bottom">
+		<span id="Coordinates">
+			<select name="PrecisionSelector" id="PrecisionSelector" title="Precision des coordonn&eacute;es" alt="Precision des coordonn&eacute;es">
+				<option selected ></option>
+				<option></option>
+				<option></option>
+				<option></option>
+				<option></option>
+			</select>		
+		</span>
+		<span id="StatusTitle">Statut :</span>
+		<span id="StatusMessage"></span>		
+	</div>
+
+</div>
+
+<!-- Fenêtre de dialogue en cas de réponse multiple du géocodeur -->		
+<div id="DialogueAdresses" dojoType="dialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="10">
+	<form id="FormDlgAdresses" name="FormDlgAdresses" onsubmit="return false;">
+		Le g&eacute;ocodeur a trouv&eacute; plusieurs adresses.<br/>
+		S&eacute;l&eacute;ctionnez en une ou cliquer sur annuler :<br/><br/>
+		<select id="AddressesList" name="AddressesList" size='10'></select>
+		<br/>
+		<div align="center">
+			<input type="button" id="ChooseAddress" value="OK" onClick="return isValidAddressChoice();">
+			<input type="button" id="CancelAddress" value="Annuler">
+		</div>
+	</form>
+</div>
+
+<!-- Fenêtre d'export -->		
+<div id="DialogueExport" dojoType="dialog" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="10">
+	S&eacute;l&eacute;ctionnez tout le contenu.<br/>
+	Copiez et collez le dans un fichier &agrave; enregistrer<br/>
+	En attendant mieux...<br/>
+	<textarea id="exportedData" rows="10" cols="150"></textarea>
+	<div align="center">
+		<input type="button" id="ExportOk" value="OK">
+	</div>
+</div>
+
+<!-- Fenêtre de progression pour les opérations potentiellement longues -->		
+<div id="progessDialog" dojoType="dialog" floatDimension="300" bgColor="white" bgOpacity="0.5" toggle="fade" toggleDuration="0">
+	<div id="progressBar" dojoType="ProgressBar"></div>
+</div>
+
+</body>
+</html>

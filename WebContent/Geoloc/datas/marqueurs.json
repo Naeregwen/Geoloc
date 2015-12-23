@@ -1,0 +1,308 @@
+/*
+ * Marqueurs préparés au format json d'après les réponses du géocodeur google pour être intégrés simultanément :
+ * - soit comme données propres de l'application EasyMap (onMap),
+ * - soit comme données du cache du géocodeur de l'application EasyMap (inCache),
+ * - soit les deux (both);
+ */
+{
+	markers: [
+	{ 
+		name:"Paris", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Paris",
+			population: "2.553M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "FR",
+					Locality: {LocalityName: "Paris"}
+				},
+				Accuracy: 8
+			},
+			Point: {
+				coordinates: [2.351019, 48.856662, 0]
+			}
+		}]
+  	},
+  	
+	{ 
+		name:"Paris 13", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "loc",  
+			fixed: "false",
+			address: "Paris 13",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "FR",
+					Locality: {LocalityName: "Paris"}
+				},
+				Accuracy: 8
+			},
+			Point: {
+				coordinates: [2.365696, 48.830428, 0]
+			}
+		}]
+  	},
+
+	{ 
+		name:"Paris 11", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "loc",  
+			fixed: "false",
+			address: "Paris 11",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "FR",
+					Locality: {LocalityName: "Paris"}
+				},
+				Accuracy: 8
+			},
+			Point: {
+				coordinates: [2.281547, 48.86006, 0]
+			}
+		}]
+  	},
+
+	{ 
+		name:"Paris 10", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "loc",  
+			fixed: "false",
+			address: "Paris 10",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "FR",
+					Locality: {LocalityName: "Paris"}
+				},
+				Accuracy: 8
+			},
+			Point: {
+				coordinates: [2.362394, 48.875947, 0]
+			}
+		}]
+  	},
+
+	{ 
+		name:"Marseille", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Marseille",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "FR",
+					Locality: {LocalityName: "Marseille"}
+				},
+				Accuracy: 8
+			},
+			Point: {
+				coordinates: [5.387077331542969, 43.30019680023961, 0]
+			}
+		}]
+  	},
+
+	{ 
+		name:"Londres", 
+		store:"onMap",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Londres",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "UK",
+					Locality: {LocalityName: "Londres"}
+				},
+				Accuracy: 7
+			},
+			Point: {
+				coordinates: [-0.12625694274902344, 51.50019435946635, 0]
+			}
+		}]
+  	},
+
+ 	{ 
+		name:"Washington, DC", 
+		store:"inCache",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Washington, DC, USA",
+			population: "0.563M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "US",
+					AdministrativeArea: {
+						AdministrativeAreaName: "DC",
+						Locality: {LocalityName: "Washington"}
+					}
+				},
+				Accuracy: 8				
+			},
+			Point: {
+				coordinates: [-77.036667, 38.895000, 0]
+			}
+		}]
+  	},
+
+ 	{ 
+		name:"Tokyo, Japon", 
+		store:"both",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Tokyo, Japon",
+			population: "12.527M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "JP",
+					Locality: {LocalityName: "Tokyo"}
+				},
+				Accuracy: 8				
+			},
+			Point: {
+				coordinates: [139.770004, 35.669998, 0]
+			}
+		}]
+  	},
+
+ 	{ 
+		name:"Rome, Italie", 
+		store:"both",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Rome, Italie",
+			population: "2.553M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "IT",
+					Locality: {LocalityName: "Roma"}
+				},
+				Accuracy: 8				
+			},
+			Point: {
+				coordinates: [12.482181, 41.895431, 0]
+			}
+		}]
+  	},
+  	
+ 	{ 
+		name:"Berlin, Germany", 
+		store:"both",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Berlin, Germany",
+			population: "3.396M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "DE",
+					Locality: {LocalityName: "Berlin"}
+				},
+				Accuracy: 8				
+			},
+			Point: {
+				coordinates: [13.411895, 52.523781, 0]
+			}
+		}]
+  	},
+  	
+ 	{ 
+		name:"Glasgow", 
+		store:"both",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Glasgow",
+			population: "unknown",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "UK",
+					Locality: {LocalityName: "Glasgow"}
+				},
+				Accuracy: 6				
+			},
+			Point: {
+				coordinates: [-4.255828857421875, 55.86563134833293, 0]
+			}
+		}]
+  	},
+  	
+ 	{ 
+		name:"Madrid, Spain", 
+		store:"inCache",
+		Status: {
+			code: 200,
+			request: "geocode"
+		},
+		Placemark: [{
+			type: "base",  
+			fixed: "false",
+			address: "Madrid, Spain",
+			population: "3.228M",
+			AddressDetails: {
+				Country: {
+					CountryNameCode: "ES",
+					Locality: {LocalityName: "Madrid"}
+				},
+				Accuracy: 8				
+			},
+			Point: {
+				coordinates: [-3.703270, 40.416712, 0]
+			}
+		}]
+  	}
+  	
+	]
+}				

@@ -1,0 +1,194 @@
+/*
+ * Général
+ */
+html, body {	
+	width: 100%;	    /* make the body expand to fill the visible window */
+	height: 100%;
+	overflow: hidden;	/* erase window level scrollbars */
+	padding: 0 0 0 0;
+	margin: 0 0 0 0;
+}
+
+/*
+ * Composants de la librairie dojo
+ */
+.dojoSplitPane {
+	margin: 5px;
+}
+
+.dojoDialog {
+	background : #eee;
+	border : 1px solid #999;
+	-moz-border-radius : 5px;
+	padding : 4px;
+}
+
+/*
+ * Composants propres à l'application
+ */
+#Layout {
+	width: 100%;
+	height: 100%;
+}
+
+/*
+ * Barre de saisie d'adresse et de commandes
+ */
+
+#BarreDeCommande {
+	background-color: #274383;
+	color: white; 
+	height: 30px;
+}
+
+.statusIcon {
+	align: center;
+	vertical-align: center;
+	margin: 10px 5px 0px 13px;
+}
+
+.ZoneDeSaisie {
+	margin: 3px;
+}
+#address {
+	vertical-align: top;
+	margin-right: 3px;
+	margin-top: 2px;
+}
+.option {
+
+}
+.CmdBtn {
+	width: 16px;
+	height: 16px;
+}
+
+/*
+ * Carte
+ */
+#EasyMap {
+	width: 100%;
+	height: 480px;
+	border: 1px solid black;
+}
+
+.tooltip {
+	background-color: #ffffff;
+	font-weight: bold;
+	border: 2px #006699 solid;
+	padding:2px;
+}
+
+/*
+ * Barre de statut
+ */
+
+#StatusBar {
+	background-color: #274383; 
+	color: white;
+}
+
+#Coordinates {
+	float:right;
+	vertical-align:top;
+}
+
+#PrecisionSelector {
+	width: 220px; 
+	text-align: center; 
+}
+
+/*
+ * Panneau des marqueurs
+ */
+#Marqueurs, #ListePays {
+	margin: 2px 5px 2px 5px;
+}
+
+#MessageListeMarqueurs {
+	display:none;
+}
+
+#ZoneDesMarqueurs {
+	width: 100%;
+	height: 100%;
+}
+
+.markersIndex {
+	display: none;
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+
+.markersIndex button {
+	width: 15px;
+	font-size: 8px;
+}
+
+/*
+ * Panneau de sauvegarde
+ */
+#Sauvegarde { margin: 2px 5px 2px 5px; }
+#savedKeys { width: 85%; }
+
+.console , .consoleContent {
+	width: 100%;
+}
+
+.console {
+	background: #94beff;
+	border: 1px solid black;
+}
+
+.consoleContent {
+	overflow: auto;
+	background: #eeeeee;
+	border-right:  1px solid black;
+	border-bottom: 1px solid black;
+	border-left:   1px solid black;
+	height: 400px;
+}
+
+/*
+ * Panneaux d'aides
+ */
+ 
+div.dojoLinkPane  {
+	overflow: auto;	
+	margin: 2px;
+}
+
+/*
+ * Options
+ */
+ 
+#AccordeonOptions, #AccordeonAide {
+	height: 98%;
+	width: 98%;
+	left: 1px;
+	top: 1px;
+	position: relative;
+}
+.label {
+	border: 1px solid black;
+	background: #232323;
+	color: #fff;
+	font-weight: bold;
+}
+
+.label :hover {
+	cursor: pointer;
+}
+
+.accBody {
+	background: #ededed;
+	overflow: auto;
+}
+.optionLabel {
+	cursor:pointer;
+}
+.optionTitle {
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
